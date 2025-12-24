@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../assets/c.png'
-import { LayoutDashboard, SquareActivity, Settings, MessageSquareMore, ChevronDown, ChevronRight } from 'lucide-react'
+import { LayoutDashboard, SquareActivity, Settings, MessageSquareMore, ChevronDown, ChevronRight, Headset, LogOut } from 'lucide-react'
 import Incident from '../assets/Group 4 (1).png'
 import Vector from '../assets/Vector.png'
 import Vector1 from '../assets/Group 696 (1).png'
@@ -79,6 +79,16 @@ const Sidebar = () => {
                         )
                     })}
                 </ul>
+                 <ul className='mt-8 px-4 pb-6 space-y-3'>
+                <li className='flex items-center gap-3 py-2 px-4 text-white cursor-pointer hover:bg-[#2a3441] transition-colors duration-200 border border-white rounded-full'>
+                    <Headset size={20} />
+                    <span>Contact us</span>
+                </li>
+                <li className='flex items-center gap-3 py-2 px-4 text-white cursor-pointer hover:bg-[#2a3441] transition-colors duration-200 border border-white rounded-full'>
+                    <LogOut size={20} />
+                    <span>Logout</span>
+                </li>
+            </ul>
             </nav>
         </div>
     )
