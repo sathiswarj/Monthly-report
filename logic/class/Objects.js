@@ -1,17 +1,17 @@
-let person = {
-    firstName:"John", // property - firstName
-    lastName:"Doe",
-    age:24, 
-    isStudent: false
-}
+// let person = {
+//     firstName:"John", // property - firstName
+//     lastName:"Doe",
+//     age:24, 
+//     isStudent: false
+// }
 
 
 // Object.entries(obj) returns an array of [key, value] pairs (keys are strings). For your obj it logs: [["42","a"],["22","b"],["72","c"]].
 
 
-let obj = {42:"a", 22:'b', 72:'c'}
+// let obj = {42:"a", 22:'b', 72:'c'}
 
-console.log(Object.entries(obj))  
+// console.log(Object.entries(obj))  
 
 
 // this is a special keyword in JavaScript that refers to the object that is currently executing the function
@@ -23,18 +23,18 @@ console.log(Object.entries(obj))
 // 1. Access their own object’s properties
 // 2. Be reused for different objects
 
-function createCharacter(name){
-    return{
-        name,
-        greet: function(){
-            console.log(`${this.name}`)
-        }
-    }
-}
+// function createCharacter(name){
+//     return{
+//         name,
+//         greet: function(){
+//             console.log(`${this.name}`)
+//         }
+//     }
+// }
 
-//
-const character= createCharacter("John") 
-character.greet() 
+// //
+// const character= createCharacter("John") 
+// character.greet() 
 
 //Whatever is BEFORE the dot (.), that becomes this
 
@@ -59,3 +59,7 @@ character.greet()
 // 4. Print: John
 
 // 5. Function mudiyudhu, return
+
+
+// =============================================================================================
+
