@@ -33,3 +33,22 @@ function vowel(str){
 
 console.log(vowel("laptop"))
 
+
+// ==========================================================================================
+
+//Count the vowels
+
+function countVow(str){
+    let count = 0;
+    let vowels=['a','e','i','o','u']
+
+    for(let i=0;i<str.length;i++){
+        if(vowels.includes(str[i])){
+            count++;
+        }
+    }
+    return count;
+}
+
+console.log(countVow("javascript"))
+
