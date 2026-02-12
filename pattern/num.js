@@ -1,10 +1,16 @@
-function pattern(n){
+// 1
+// 0 1
+// 1 0 1
+// 0 1 0 1
+// 1 0 1 0 1 
+
+function pattern(n) {
     let start = 0;
-    for(let i=0;i<n;i++){
-        if(i % 2 === 0) start = 1;
+    for (let i = 0; i < n; i++) {
+        if (i % 2 === 0) start = 1;
         else start = 0;
         let row = '';
-        for(let j=0;j<=i;j++){
+        for (let j = 0; j <= i; j++) {
             row += start + ' ';
             start = 1 - start;
         }
@@ -12,3 +18,4 @@ function pattern(n){
     }
 }
 pattern(5)
+
