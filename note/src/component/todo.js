@@ -17,8 +17,8 @@ const Todo = () => {
         }
     }
 
-    const handleDelete = (id) =>{
-        const filteredTodos = todos.filter((todo)=> todo.id !== id)
+    const handleDelete = (id) => {
+        const filteredTodos = todos.filter((todo) => todo.id !== id)
         setTodos(filteredTodos)
     }
     return (
@@ -36,7 +36,7 @@ const Todo = () => {
                             <li key={todo.id}>
                                 <p>{todo.name}</p>
                                 <p>{todo.details}</p>
-                                <button onClick={()=> handleDelete(todo.id)}>Delete</button>
+                                <button onClick={() => handleDelete(todo.id)}>Delete</button>
                             </li>
                         </>
                     ))}
