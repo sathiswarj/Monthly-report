@@ -1,15 +1,13 @@
 // Find the longest word in a sentence.
-
- function longestWord(str){
+function longestWord(str){
     let word = str.split(' ')
-    let longestWord = '';
-
+    let longWord=''
     for(let i=0;i<word.length;i++){
-        if(word[i].length > longestWord.length ){
-            longestWord = word[i]
+        if(word[i].length > longWord.length){
+            longWord = word[i]
         }
     }
-    return longestWord
- }
+    return longWord
+}
 
  console.log(longestWord("this is javascript"))

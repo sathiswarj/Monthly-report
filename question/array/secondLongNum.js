@@ -17,20 +17,6 @@
 // console.log(secondLong(arr))
 
 
-// function longNum(arr1){
-//     var largest = arr1[0]
-//      for(let i=0;i<arr1.length;i++){
-//         if(largest<arr1[i]){
-//              largest =  arr1[i]
-//         }
-
-//     }
-//     return largest
-// }
-
-// const arr1 = [1,2,3,4,5]
-// console.log(longNum(arr1))
-
 
 // function secondLargestNumber(arr) {
 //     let largestNum = arr[0];
@@ -51,16 +37,6 @@
 // const arr = [1, 2, 3, 4, 5]
 // console.log(secondLargestNumber(arr))
 
-// function palindrome(str){
-//     let reversedStr = ''
-//     for(let i=str.length-1;i>=0;i--){
-//         reversedStr += str[i]
-//     }
-//     return str === reversedStr
-// }
-
-// const str = "madams"
-// console.log(palindrome(str))
 
 
 // function factorial(num){
@@ -87,16 +63,16 @@
 // const n = 7
 // console.log(fibonacci(n))
 
-function countVowels(str){
-    let count = 0;
-    let vowels="aeiou";
-    for(let i=0;i<str.length;i++){
-        if(vowels.includes(str[i].toLowerCase())){
-            count++;
-        }
-    }
-    return count;
-}
+// function countVowels(str){
+//     let count = 0;
+//     let vowels="aeiou";
+//     for(let i=0;i<str.length;i++){
+//         if(vowels.includes(str[i].toLowerCase())){
+//             count++;
+//         }
+//     }
+//     return count;
+// }
 
-const str = "Hello World"
-console.log(countVowels(str))
+// const str = "Hello World"
+// console.log(countVowels(str))

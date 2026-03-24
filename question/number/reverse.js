@@ -1,13 +1,12 @@
 // Reverse a number
 
 function reverseNum(num){
-    let arr =  num.toString().split('')
-    let reversed = '';
-    for(let i = arr.length - 1 ;i >= 0; i--){
-        reversed += arr[i]
+    let nums = num.toString()
+    let reversedNum = ''
+    for(let i=nums.length-1;i>=0;i--){
+        reversedNum += nums[i]
     }
-    return Number(reversed)
+    return reversedNum
 }
-
 console.log(reverseNum(321))
 

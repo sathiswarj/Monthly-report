@@ -1,9 +1,10 @@
-function reverseSentence(str) {
-    let word = str.split(" ")
-    let reversedWord = "";
-    for (let i = word.length - 1; i >= 0; i--) {
-        reversedWord += word[i] + " ";
+function reverseSentence(str){
+    let string = str.split(' ')
+    let reversedSentence = ''
+    for(let i=string.length - 1;i>=0;i--){
+        reversedSentence  += string[i] + ' '
     }
-    console.log(reversedWord);
+    return reversedSentence
 }
-reverseSentence("this is blue");
+
+console.log(reverseSentence("this is blue"))
