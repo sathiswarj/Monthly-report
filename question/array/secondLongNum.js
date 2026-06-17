@@ -76,3 +76,22 @@
 
 // const str = "Hello World"
 // console.log(countVowels(str))
+
+
+function secondLargestNumber(arr){
+    let longest = arr[0];
+    let secondLargest = -1;
+    for(let i=0;i<arr.length;i++){
+        if(longest < arr[i]){
+            secondLargest = longest
+            longest = arr[i]
+        }
+        else if(arr[i] < longest && secondLargest < arr[i]){
+            secondLargest = arr[i]
+        }
+    }
+
+    return secondLargest;
+}
+const arr = [1, 2, 3, 4, 5]
+console.log(secondLargestNumber(arr))

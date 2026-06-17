@@ -30,3 +30,20 @@ function pattern(num,k){
 
  pattern([1,2,3,4,5], 2)
 
+//  function pattern(arr,k){
+//     let n = arr.length;
+//     let temp = []
+//     k = k%n
+//     for(let i=0;i<arr.length;i++){
+//         temp[i] = arr[i]
+//     }
+//     for(let j=k;j<arr.length;j++){
+//         arr[j-k] = arr[j]
+//     }
+//     for(let l = n-k;l<arr.length;l++){
+//         arr[l] = temp[l-(n-k)]
+//     }
+//     return arr
+// }
+
+// console.log(pattern([1,2,3,4,5],2))
