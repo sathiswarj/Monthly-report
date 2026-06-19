@@ -7,7 +7,7 @@ import Dialog from './component/Dialog/Dialog';
 import { useState } from 'react';
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] =  useState(false);
 
   return (
     <>
