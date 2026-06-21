@@ -8,4 +8,4 @@ function factorial(num){
     return fact
 }
 
-console.log(factorial(10))
+console.log(factorial(5))
