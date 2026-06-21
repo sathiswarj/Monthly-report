@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Popup from './Popup'
 import { API_BASE_URL } from '../Service/apiEndPoint'
 import { useNavigate } from 'react-router-dom'
@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'
 const Table = () => {
     const [isPopupOpen, setIsPopupOpen] = React.useState(false)
     const [data, setData] = React.useState([])
+    const [editItem, setEditItem] = useState(null)
+
     const navigate = useNavigate()
     const handleFetch = async () => {
         try {
@@ -35,6 +37,11 @@ const Table = () => {
         localStorage.removeItem('tokens1');
         navigate('/')
     }
+
+    const handleEdit = (item) => {
+        setEditItem(item)
+        setIsPopupOpen(true)
+    }
     return (
         <>
             <h1>Table Component</h1>
@@ -55,10 +62,10 @@ const Table = () => {
                                 <td>{item.task}</td>
                                 <td>{item.description}</td>
                                 <td>{item.priority}</td>
-                                <td>{item.completed ? 'Completed' : 'Pending'}</td>
+                                <td>{item.completed ? 'Completed' : 'Not Completed'}</td>
                                 <td>
-                                    <button>Edit</button>
-                                    <button>Delete</button>
+                                    <button onClick={() => handleEdit(item)}>Edit</button>
+                                    <button  >Delete</button>
                                 </td>
                             </tr>
                         ))
@@ -66,7 +73,12 @@ const Table = () => {
                 </tbody>
             </table>
             <button style={{ marginTop: '20px', width: '100px', height: '30px', backgroundColor: 'blue', color: 'white' }} onClick={() => setIsPopupOpen(true)}>Open Popup</button>
-            <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
+            <Popup isOpen={isPopupOpen} onClose={() => {
+
+                setEditItem(null)
+                setIsPopupOpen(false)
+            }
+            } onEdit={handleEdit} editItem={editItem} />
 
             <button onClick={handleLogout}>Logout</button>
         </>

@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { API_BASE_URL } from '../Service/apiEndPoint'
-const Popup = ({ isOpen, onClose }) => {
+const Popup = ({ isOpen, onClose, editItem }) => {
     const [task, setTask] = React.useState('')
     const [description, setDescription] = React.useState('')
     const [priority, setPriority] = React.useState('')
@@ -11,6 +11,40 @@ const Popup = ({ isOpen, onClose }) => {
         setPriority(e.target.value)
     }
 
+    useEffect(() => {
+        if (editItem) {
+            setTask(editItem.task || '')
+            setDescription(editItem.description || '')
+            setPriority(editItem.priority || '')
+            setCompleted(editItem.completed || false)
+            setNotCompleted(editItem.notCompleted !== undefined ? editItem.notCompleted : !editItem.completed)
+        }
+    }, [editItem])
+
+    const handleUpdate = async (e, id) => {
+        e.preventDefault()
+        try {
+            const token = localStorage.getItem('tokens1')
+            const response = await fetch(`${API_BASE_URL}/todo/${id}`, {
+                method: "PUT",
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    task: task,
+                    description: description,
+                    priority: priority,
+                    completed: completed,
+                    notCompleted: notCompleted
+                })
+            })
+            const data = await response.json()
+            console.log('Todo updated successfully:', data)
+        } catch (error) {
+            console.error('Error updating todo:', error)
+        }
+    }
     const handleCheckboxChange = (e) => {
         const { name, checked } = e.target
         if (name === 'completed') {
@@ -49,9 +83,9 @@ const Popup = ({ isOpen, onClose }) => {
     if (!isOpen) return null
     return (
         <>
-            <div style={{ position: 'fixed', inset: 0, zIndex: 50, display: 'flex', backgroundColor: 'rgba(0, 0, 0, 0.5)', justifyContent: 'center', alignItems: 'center' }} onSubmit={handleSubmit}>
+            <div style={{ position: 'fixed', inset: 0, zIndex: 50, display: 'flex', backgroundColor: 'rgba(0, 0, 0, 0.5)', justifyContent: 'center', alignItems: 'center' }}  >
                 <div style={{ width: '300px', height: '500px', backgroundColor: 'white', border: '1px solid black', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                    <form style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <form style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} onSubmit={editItem ? (e) => handleUpdate(e, editItem._id) : handleSubmit}>
                         <input type="text" placeholder='Enter your task' style={{ marginTop: '10px' }} value={task} onChange={(e) => setTask(e.target.value)}></input>
                         <textarea placeholder='Enter your description' style={{ marginTop: '10px' }} value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
 
